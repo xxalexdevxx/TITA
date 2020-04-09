@@ -26,10 +26,10 @@ public class LoginServlet extends HttpServlet {
        String url;
        
        if (userName.equals("sally.reid@tita.com") && password.equals("letmein") ) {
-          url = "/account_activity.html";
+          url = "/account_activity.jsp";
        }
        else {
-          url = "/login_failure.html";
+          url = "/login_failure.jsp";
        }
        
        getServletContext().getRequestDispatcher(url).forward(request, response); 

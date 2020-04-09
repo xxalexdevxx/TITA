@@ -1,5 +1,5 @@
 <%@ include file="/includes/header.html" %>
         <br>
         <br>
-        <h3>Exception: ${pageContext.getException()}</h3>
+        <h1>Login failure</h1>
 <%@ include file="/includes/footer.jsp" %>

@@ -1,25 +1,4 @@
-<%-- 
-    Document   : new_customer
-    Created on : Mar 28, 2020, 4:07:44 PM
-    Author     : Alex
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="styles/styles.css" type="text/css"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TITA</title>
-    </head>
-    <body>
-        <h1>TITA</h1>
-        <ul class="navigation">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="new_customer.jsp">New Customer Sign Up</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
+<%@ include file="/includes/header.html" %>
         <br>
         <br>
         <h1>${formMessage}</h1>
@@ -35,7 +14,8 @@
             <input type="text" id="userName" name="userName"><br><br>
             <label for="lastName">Password:</label><br>
             <input type="text" id="password" name="password"><br><br>
+            <label for="lastName">Zipcode</label><br>
+            <input type="text" id="zipcode" name="zipcode"><br><br>
             <input type="submit" value="Submit">
         </form> 
-    </body>
-</html>
+<%@ include file="/includes/footer.jsp" %>
