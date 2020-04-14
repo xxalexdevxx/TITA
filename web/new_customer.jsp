@@ -1,11 +1,9 @@
 <%@ include file="/includes/header.html" %>
-        <br>
-        <br>
         <h1>${formMessage}</h1>
         <form action="RegistrationServlet" method="post">
             <input type="hidden" name="action">  
             <label for="firstName">First name:</label><br>
-            <input type="text" id="firstName" name="firstName"><br>
+            <input type="text" id="firstName" name="firstName"><br><br>
             <label for="lastName">Last name:</label><br>
             <input type="text" id="lastName" name="lastName"><br><br>
             <label for="lastName">Email:</label><br>

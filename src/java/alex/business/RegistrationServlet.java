@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
        String zipcode = request.getParameter("zipcode");
        String url = "";
        String formMessage = "";
-       User user = new User(firstName, lastName, email, lastName + zipcode , "welcome1", zipcode);
+       User user = new User(firstName, lastName, email, userName , password, zipcode);
        
        if ( firstName.isEmpty()|| lastName.isEmpty() || email.isEmpty() || userName.isEmpty() || password.isEmpty() || zipcode.isEmpty()) {
            formMessage = "Please fill out all fields";

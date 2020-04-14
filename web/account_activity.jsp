@@ -1,5 +1,5 @@
 <%@ include file="/includes/header.html" %>
-        <br>
-        <br>
-        <h1>Account Activity Page</h1>    
+
+        <h1>Account Activity Page</h1>
+        <h3><a href="new_issue.jsp">Create an Issue</a></h3>
 <%@ include file="/includes/footer.jsp" %>

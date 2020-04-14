@@ -1,6 +1,4 @@
 <%@ include file="/includes/header.html" %>
-        <br>
-        <br>
         <form action="LoginServlet" method="post">
             <input type="hidden" name="action">  
             <label for="userName">User name:</label><br>

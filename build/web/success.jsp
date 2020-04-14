@@ -8,4 +8,5 @@
         <p>${sessionScope.user.userName}</p>
         <p>${sessionScope.user.password}</p>
         <p>${sessionScope.user.zipcode}</p>
+     
 <%@ include file="/includes/footer.jsp" %>
