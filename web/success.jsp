@@ -1,7 +1,7 @@
 <%@ include file="/includes/header.html" %>
         <br>
         <br>
-        <h1>Account has been successfully created.</h1>
+        <h1>User account has been successfully created.</h1>
         <p>${sessionScope.user.firstName}</p>
         <p>${sessionScope.user.lastName}</p>
         <p>${sessionScope.user.email}</p>

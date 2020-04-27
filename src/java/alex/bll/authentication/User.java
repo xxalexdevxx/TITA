@@ -1,18 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package alex.bll.authentication;
 
+import alex.bll.issues.Issue;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-/**
- *
- * @author Alex
- */
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class User implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
     private String firstName;
     private String lastName;
     private String email;
@@ -20,22 +26,61 @@ public class User implements Serializable {
     private String password;
     private String zipcode;
     
+    @OneToMany
+    private List<Issue> issues;
+    
     public User() {
+        userId = new Long(0);
         firstName = "";
         lastName = "";
         email = "";
         userName = "";
         password = "";
         zipcode = "";
+        issues = new ArrayList<Issue>();
     }
     
-    public User(String firstName, String lastName, String email, String userName, String password, String zipcode) {
+
+    public User(Long userId, String firstName, String lastName, String email, String userName, String password, String zipcode) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.zipcode = zipcode;
+        this.issues = new ArrayList<Issue>();
+
+    }
+    
+    public void addIssue(Issue issue) {
+        this.issues.add(issue);
+    }
+    
+    public void removeIssue(Long issueId) {
+        for (Issue issue : this.issues) {
+            if (issue.getIssueId() == issueId) {
+                this.issues.remove(issue);
+            }
+        }
+    }
+
+    public List<Issue> getIssues() {
+        return issues;
+    }
+
+    public void setIssues(ArrayList<Issue> issues) {
+        this.issues = issues;
+    }
+
+
+    
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -84,8 +129,7 @@ public class User implements Serializable {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
-    }
-    
+    }   
 }
 
    

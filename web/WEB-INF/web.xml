@@ -17,6 +17,8 @@
         <servlet-name>Issue</servlet-name>
         <servlet-class>alex.bll.issues.Issue</servlet-class>
     </servlet>
+    
+    <!--mappings-->
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>

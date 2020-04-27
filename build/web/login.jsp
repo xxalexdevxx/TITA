@@ -1,4 +1,5 @@
 <%@ include file="/includes/header.html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <form action="LoginServlet" method="post">
             <input type="hidden" name="action">  
             <label for="userName">User name:</label><br>
