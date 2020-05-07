@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:choose>
   <c:when test="${sessionScope.userLoggedIn != null}">
-        <p>${sessionScope.user.firstName} ${sessionScope.user.lastName}</p>
+        
         <h3><a href="new_issue.jsp">Create an Issue</a></h3>
         <h3><a href="delete_issue.jsp">Delete an Issue</a></h3>
     </c:when>

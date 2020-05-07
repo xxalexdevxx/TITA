@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/conf/persistence.xml</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/web/delete_issue.jsp</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/java/alex/bll/issues/Issue.java</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/web/new_issue.jsp</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/web/dashboard.jsp</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/java/alex/data/IssueDB.java</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/java/alex/data/UserDB.java</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/java/alex/business/LoginServlet.java</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/java/alex/business/RegistrationServlet.java</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/java/alex/bll/issues/IssueServlet.java</file>
-            <file>file:/C:/programming_all/java_web_dev/TITA/src/java/alex/bll/authentication/User.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

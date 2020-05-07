@@ -56,16 +56,28 @@ public class IssueServlet extends HttpServlet {
 
                 user.addIssue(issue);
                 UserDB.update(user);
+                session.setAttribute("issueId", issue.getIssueId());
                 session.setAttribute("userName", user);
             }
         } else if (action.equals("delete")) {
-            
+
+            formMessage = "";
+
             HttpSession session = request.getSession();
-            String issueId = request.getParameter("issueId"); // getting as a string here, but it is changed to long below.
-            User user = (User) session.getAttribute("userName");
-            user.removeIssue(Long.parseLong(issueId)); // something goes wrong here
+            String issueId = request.getParameter("issueId");
+            User user = (User) session.getAttribute("userLoggedIn");
+            user.removeIssue(Long.parseLong(issueId));
             UserDB.update(user);
-            session.setAttribute("userName", user);
+            session.setAttribute("user", user);
+            
+            url = "/dashboard.jsp";
+
+//            HttpSession session = request.getSession();
+//            String issueId = request.getParameter("issueId"); // getting as a string here, but it is changed to long below.
+//            User user = (User) session.getAttribute("userName");
+//            user.removeIssue(Long.parseLong(issueId)); // something goes wrong here
+//            UserDB.update(user);
+//            session.setAttribute("userName", user);
         }
 
         request.setAttribute("formMessage", formMessage);
@@ -78,5 +90,3 @@ public class IssueServlet extends HttpServlet {
         doPost(request, response);
     }
 }
-
-

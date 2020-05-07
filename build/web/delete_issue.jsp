@@ -5,7 +5,7 @@
         <form action="IssueServlet" method="post">
             <input type="hidden" name="action" value="delete">  
             <label for="issueId">Issue Id: </label><br>
-            <input type="text" id="issueId" name="issueId"><br><br>
+            <input type="number" id="issueId" name="issueId"><br><br>
             <input type="submit" value="Submit">
         </form> 
 

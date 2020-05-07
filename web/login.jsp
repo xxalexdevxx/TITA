@@ -1,11 +1,13 @@
 <%@ include file="/includes/header.html" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <form action="LoginServlet" method="post">
-            <input type="hidden" name="action">  
-            <label for="userName">User name:</label><br>
-            <input type="text" id="userName" name="userName"><br>
-            <label for="password">Password:</label><br>
-            <input type="text" id="password" name="password"><br><br>
-            <input type="submit" value="Submit">
-        </form> 
+<form action="LoginServlet" method="post">
+    <input type="hidden" name="action">  
+    <label for="userName">User name:</label><br>
+    <input type="text" id="userName" name="userName"><br>
+    <label for="password">Password:</label><br>
+    <input type="text" id="password" name="password"><br><br>
+    <input type="submit" value="Submit">
+</form> 
+
 <%@ include file="/includes/footer.jsp" %>

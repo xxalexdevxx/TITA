@@ -1,5 +1,6 @@
 <%@ include file="/includes/header.html" %>
         <h1>${formMessage}</h1>
+        <h1>Create an account</h1>
         <form action="RegistrationServlet" method="post">
             <input type="hidden" name="action">  
             <label for="firstName">First name:</label><br>

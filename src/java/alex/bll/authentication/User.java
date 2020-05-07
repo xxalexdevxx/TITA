@@ -4,6 +4,8 @@ import alex.bll.issues.Issue;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import alex.data.IssueDB;
+import alex.data.UserDB;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -15,7 +17,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class User implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
@@ -24,8 +26,9 @@ public class User implements Serializable {
     private String email;
     private String userName;
     private String password;
+//    private String salt;
     private String zipcode;
-    
+
     @OneToMany
     private List<Issue> issues;
     
@@ -36,11 +39,12 @@ public class User implements Serializable {
         email = "";
         userName = "";
         password = "";
+//        salt = "";
         zipcode = "";
         issues = new ArrayList<Issue>();
     }
-    
 
+//        public User(Long userId, String firstName, String lastName, String email, String userName, String salt, String password, String zipcode) {
     public User(Long userId, String firstName, String lastName, String email, String userName, String password, String zipcode) {
         this.userId = userId;
         this.firstName = firstName;
@@ -48,19 +52,22 @@ public class User implements Serializable {
         this.email = email;
         this.userName = userName;
         this.password = password;
+//        this.salt = salt;
         this.zipcode = zipcode;
         this.issues = new ArrayList<Issue>();
 
     }
-    
+
     public void addIssue(Issue issue) {
         this.issues.add(issue);
     }
-    
+
     public void removeIssue(Long issueId) {
+
         for (Issue issue : this.issues) {
-            if (issue.getIssueId() == issueId) {
+            if (Objects.equals(issue.getIssueId(), issueId)) {        
                 this.issues.remove(issue);
+                break; 
             }
         }
     }
@@ -72,8 +79,11 @@ public class User implements Serializable {
     public void setIssues(ArrayList<Issue> issues) {
         this.issues = issues;
     }
-
-
+    
+    // added for assignment 4
+    public List<User> getUsers(){
+        return UserDB.selectUsers();
+    }
     
     public Long getUserId() {
         return userId;
@@ -123,13 +133,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
+//    public String getSalt() {
+//        return salt;
+//    }
+//
+//    public void setSalt(String salt) {
+//        this.salt = salt;
+//    }
+    
+
     public String getZipcode() {
         return zipcode;
     }
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
-    }   
+    }
 }
-
-   

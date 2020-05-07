@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                              http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <!-- Define security roles -->
+    <security-role>
+        <description>system administrator</description>
+        <role-name>admin</role-name>
+    </security-role>
+    <!-- Restrict access to all files in the /admin folder -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <!-- Authorize the admin role -->
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <!-- Use form-based authentication -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/admin/login.html</form-login-page>
+            <form-error-page>/admin/login_failure.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    
+    
+    
+    <!--FILTER-->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>alex.filters.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <servlet-name>LoginServlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -17,8 +56,14 @@
         <servlet-name>Issue</servlet-name>
         <servlet-class>alex.bll.issues.Issue</servlet-class>
     </servlet>
-    
-    <!--mappings-->
+    <servlet>
+        <servlet-name>ReportsServlet</servlet-name>
+        <servlet-class>alex.admin.ReportsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RequestSpreadsheet</servlet-name>
+        <servlet-class>alex.business.RequestSpreadsheet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -35,6 +80,20 @@
         <servlet-name>Issue</servlet-name>
         <url-pattern>/Issue</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportsServlet</servlet-name>
+        <url-pattern>/ReportsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestSpreadsheet</servlet-name>
+        <url-pattern>/RequestSpreadsheet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
     <error-page>
         <error-code>404</error-code>
         <location>/error_404.jsp</location>
@@ -43,10 +102,4 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/error_java.jsp</location>
     </error-page>
-    <session-config>
-        <session-timeout>30</session-timeout>
-    </session-config>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
 </web-app>
